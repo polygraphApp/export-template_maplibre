@@ -6,12 +6,14 @@
 
 	import addTopoJsonLayer from '$lib/addTopoJsonLayer.js';
 
+	let { filepath } = $props();
+
 	/** @type {import('maplibre-gl').Map} */
 	let map;
 	let mapLayer;
 	onMount(async () => {
 		// Load the data
-		const topodata = await fetch('/data/data.topojson').then((response) => {
+		const topodata = await fetch(filepath).then((response) => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
@@ -25,8 +27,8 @@
 		map = new maplibregl.Map({
 			container: 'map',
 			style: 'https://tiles.openfreemap.org/styles/positron',
-			center: [-74.5, 40],
-			zoom: 7
+			center: [-95, 40.5],
+			zoom: 3
 		});
 
 		// Wait for both map and data to be ready
