@@ -13,10 +13,13 @@ import * as topojson from 'topojson-client';
 export default function addTopoJsonLayer(
 	map,
 	topodata,
-	paint = {
-		'fill-color': '#627BC1', // Default color
-		'fill-opacity': 0.7, // Default opacity
-		'fill-outline-color': '#000' // Default outline color
+	style = {
+		type: 'fill',
+		paint: {
+			'fill-color': '#627BC1', // Default color
+			'fill-opacity': 0.7, // Default opacity
+			'fill-outline-color': '#000' // Default outline color
+		}
 	},
 	{ sourceId = 'topojson_source', layerId = 'topojson_layer', topoLayerName = 'query_data' } = {}
 ) {
@@ -32,9 +35,9 @@ export default function addTopoJsonLayer(
 	// Add the layer to the map
 	map.addLayer({
 		id: layerId,
-		type: 'fill', // Can be changed to 'line' or 'symbol' based on needs
+		type: style.type,
 		source: sourceId,
-		paint
+		paint: style.paint
 	});
 
 	return {

@@ -1,5 +1,8 @@
 {
-	"fill-color": "#ffcc00",
-	"fill-opacity": 0.7,
-	"fill-outline-color": "#000"
+	"type": "fill",
+	"paint": {
+		"fill-color": "#ffcc00",
+		"fill-opacity": 0.7,
+		"fill-outline-color": "#000"
+	}
 }
