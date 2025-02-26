@@ -1,10 +1,9 @@
 <script>
 	import Maplibre from '$lib/Maplibre.svelte';
-
-	const filepath = '/data/data.topojson';
+	import layers from './map-layers.js';
 </script>
 
-<Maplibre {filepath} />
+<Maplibre {layers} />
 
 <style>
 	:global(body) {

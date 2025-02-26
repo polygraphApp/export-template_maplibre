@@ -4,6 +4,7 @@ import * as topojson from 'topojson-client';
  * Adds a TopoJSON layer to a Mapbox map.
  * @param {import('maplibre-gl').Map} map - The Mapbox map instance.
  * @param {import('topojson-specification').Topology} topodata - The TopoJSON data to be added.
+ * @param {Object} paint - Style values.
  * @param {Object} ids
  * @param {string} [ids.sourceId='topojson_source'] - The ID for the source.
  * @param {string} [ids.layerId='topojson_layer'] - The ID for the layer.
@@ -12,6 +13,11 @@ import * as topojson from 'topojson-client';
 export default function addTopoJsonLayer(
 	map,
 	topodata,
+	paint = {
+		'fill-color': '#627BC1', // Default color
+		'fill-opacity': 0.7, // Default opacity
+		'fill-outline-color': '#000' // Default outline color
+	},
 	{ sourceId = 'topojson_source', layerId = 'topojson_layer', topoLayerName = 'query_data' } = {}
 ) {
 	// Convert TopoJSON to GeoJSON
@@ -28,11 +34,7 @@ export default function addTopoJsonLayer(
 		id: layerId,
 		type: 'fill', // Can be changed to 'line' or 'symbol' based on needs
 		source: sourceId,
-		paint: {
-			'fill-color': '#627BC1', // Default color
-			'fill-opacity': 0.7, // Default opacity
-			'fill-outline-color': '#000' // Default outline color
-		}
+		paint
 	});
 
 	return {
