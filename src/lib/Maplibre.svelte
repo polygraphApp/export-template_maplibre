@@ -16,8 +16,8 @@
 		try {
 			// Prepare file paths
 			const paths = {
-				topo: layers.map((/** @type {string} layer */ layer) => `/data/${layer}.topojson`),
-				style: layers.map((/** @type {string} layer */ layer) => `/data/${layer}.paint.json`)
+				topo: layers.map((/** @type {string} layer */ layer) => `/topojson/${layer}.topojson`),
+				style: layers.map((/** @type {string} layer */ layer) => `/style/${layer}.style.json`)
 			};
 
 			// Load all data in parallel
