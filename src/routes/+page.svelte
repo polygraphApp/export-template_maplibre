@@ -1,9 +1,22 @@
 <script>
 	import Maplibre from '$lib/Maplibre.svelte';
-	import layers from './map-layers.js';
+	import loadConfig from '$lib/modules/loadConfig.js';
+
+	import layer1Topojson from '../data/topojson/layer1.topo.json';
+	import layer2Topojson from '../data/topojson/layer2.topo.json';
+	import layer1Style from '../data/style/layer1.style.json';
+	import layer2Style from '../data/style/layer2.style.json';
+
+	const config = loadConfig({
+		name: 'Layered map',
+		layers: [
+			{ topodata: layer1Topojson, style: layer1Style },
+			{ topodata: layer2Topojson, style: layer2Style }
+		]
+	});
 </script>
 
-<Maplibre {layers} />
+<Maplibre {config} />
 
 <style>
 	:global(body) {
