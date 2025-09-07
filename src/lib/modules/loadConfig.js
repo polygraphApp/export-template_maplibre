@@ -4,16 +4,13 @@ import { rewindFeatureCollection, rewindFeature } from '@placemarkio/geojson-rew
 /**
  *
  * @param {{
- * 	layers: Array<{
- * 		topodata: import('topojson-specification').Topology,
- * 		style: Record<string, any>
- * 	}>,
- * 	name: string?
+ * 	layers: Array<import('$lib/types.js').TopoLayerConfig>,
+ * 	name: string
  * }} config
- * @returns {{name: string?, bounds: [[number, number], [number, number]], layers: Array<{ geojson: import('geojson').FeatureCollection, style: Record<string, any> }>}}
+ * @returns {import('$lib/types.js').MapConfig}
  * }}
  */
-export default function loadLayers(config) {
+export default function loadConfig(config) {
 	const mapLayers = config.layers.map(({ topodata, style }) => {
 		const topoLayerName = Object.keys(topodata.objects)[0];
 		const geojson = topojson.feature(topodata, topodata.objects[topoLayerName]);

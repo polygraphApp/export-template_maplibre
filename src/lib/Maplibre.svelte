@@ -2,6 +2,13 @@
 	import * as maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
+	/**
+	 * The map configuration
+	 * @typedef {Object} Props
+	 * @property {import('$lib/types.js').MapConfig} config - The map configuration
+	 */
+
+	/** @type {Props} */
 	let { config } = $props();
 
 	/**
