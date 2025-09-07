@@ -13,8 +13,7 @@
 		const map = new maplibregl.Map({
 			container: element,
 			style: 'https://tiles.openfreemap.org/styles/positron',
-			center: [-95, 40.5],
-			zoom: 3
+			bounds: config.bounds
 		});
 
 		// Wait for map to be ready
@@ -33,12 +32,6 @@
 					source: `${config.name}-${i}`,
 					paint: style.paint
 				});
-			});
-
-			// Fit the map to the bounds
-			map.fitBounds(config.bounds, {
-				padding: 20,
-				maxZoom: 12
 			});
 		});
 
