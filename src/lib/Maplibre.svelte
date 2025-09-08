@@ -35,13 +35,16 @@
 					data: geojson
 				});
 
-				// Add the layer to the map
-				map.addLayer({
+				// Create layer specification
+				const layerSpec = {
 					id: `${config.name}-${i}`,
 					type: style.type,
 					source: `${config.name}-${i}`,
 					paint: style.paint
-				});
+				};
+
+				// Add the layer to the map
+				map.addLayer(/** @type {import('maplibre-gl').LayerSpecification} */ (layerSpec));
 			});
 		});
 
