@@ -19,8 +19,8 @@
 
 /**
  * @typedef {Object} MapStyleConfig
- * @property {'fill' | 'line' | 'symbol' | 'circle' | 'fill-extrusion' | 'raster' | 'background' | 'heatmap' | 'hillshade'} type - The type of map feature to render.
- * @property {Record<string, any>} paint - The paint configuration for the layer
+ * @property {'fill' | 'line' | 'circle'} type - The type of map feature to render.
+ * @property {import('maplibre-gl').CircleLayerSpecification['paint'] | import('maplibre-gl').LineLayerSpecification['paint'] | import('maplibre-gl').FillLayerSpecification['paint']} paint - The paint configuration for the layer
  */
 
 export {};
